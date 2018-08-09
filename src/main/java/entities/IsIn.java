@@ -15,14 +15,6 @@ public class IsIn {
     @EmbeddedId
     IsInID id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("userID")
-    private User user;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("groupID")
-    private Group group;
-
     @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "TypeID", nullable = false)
     private UserType type;
@@ -34,8 +26,6 @@ public class IsIn {
 
     public IsIn(User user, Group group) {
         id = new IsInID(user.getUserID(), group.getGroupID());
-        this.user = user;
-        this.group = group;
         this.isBlocked = false;
     }
 
@@ -45,22 +35,6 @@ public class IsIn {
 
     public void setId(IsInID id) {
         this.id = id;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
     }
 
     public UserType getType() {
@@ -87,12 +61,12 @@ public class IsIn {
             return false;
 
         IsIn that = (IsIn) o;
-        return Objects.equals(user, that.user) &&
-                Objects.equals(group, that.group);
+        return Objects.equals(id.getUserID(), that.getId().getUserID()) &&
+                Objects.equals(id.getGroupID(), that.getId().getGroupID());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(user, group);
+        return Objects.hash(id.getUserID(), id.getGroupID());
     }
 }

@@ -37,12 +37,15 @@ public class User {
     @Column(name="CreatedAt", nullable = false)
     private Date createdAt;
 
-    @OneToMany(
-            mappedBy = "user",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "IsIn",
+            joinColumns = @JoinColumn(name = "UserID"),
+            inverseJoinColumns = @JoinColumn(name = "GroupID")
     )
-    private Set<IsIn> groups = new HashSet<>();
+    private Set<Group> groups = new HashSet<>();
 
     public User() {}
 
@@ -120,33 +123,12 @@ public class User {
         this.createdAt = createdAt;
     }
 
-    public Set<IsIn> getGroups() {
+    public Set<Group> getGroups() {
         return groups;
     }
 
-    public void setGroups(Set<IsIn> groups) {
+    public void setGroups(Set<Group> groups) {
         this.groups = groups;
-    }
-
-    public void addGroup(Group group) {
-        IsIn isInRel = new IsIn(this, group);
-        groups.add(isInRel);
-        //group.getUsers().add(isInRel);
-    }
-
-    public void removeGroup(Group group) {
-        for (Iterator<IsIn> iterator = groups.iterator();
-             iterator.hasNext(); ) {
-            IsIn isInRel = iterator.next();
-
-            if (isInRel.getUser().equals(this) &&
-                    isInRel.getGroup().equals(group)) {
-                iterator.remove();
-                //isInRel.getGroup().getUsers().remove(isInRel);
-                isInRel.setUser(null);
-                isInRel.setGroup(null);
-            }
-        }
     }
 
     @Override
@@ -156,8 +138,8 @@ public class User {
     }
 
     public void print() {
-        //for (Group g : groups)
-        //    System.out.println(g.getGroupID());
+        for (Group g : groups)
+            System.out.println(g.getGroupID());
     }
 
 }

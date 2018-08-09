@@ -8,7 +8,7 @@ import org.hibernate.cfg.Configuration;
 
 public class Main {
     public static void main(String[] args) {
-        UserType us;
+        User us;
         SessionFactory factory = new Configuration()
                                         .configure("hibernate.cfg.xml")
                                         .buildSessionFactory();
@@ -18,12 +18,12 @@ public class Main {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            us = session.get(UserType.class, 1);
+            us = session.get(User.class, 8);
 
-            //us.print();
             //session.delete(us);
             //session.flush();
             System.out.println("Get complete: " + us);
+            us.print();
             //us.print();
 
             // commit the transaction
