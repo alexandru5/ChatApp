@@ -20,12 +20,20 @@
 
         <!-- Echo the SQL to stdout -->
         <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <property name="hbm2ddl.auto">validate</property>
 
 		<!-- Set the current session context -->
 		<property name="current_session_context_class">thread</property>
-        <mapping class="entities.User"/>
-        <mapping class="entities.Group"/>
-        <mapping class="entities.UserType"/>
+        <mapping class="main.java.entities.User"/>
+        <mapping class="main.java.entities.Group"/>
+        <mapping class="main.java.entities.UserType"/>
+        <mapping class="main.java.entities.Notification"/>
+        <mapping class="main.java.entities.Message"/>
+        <mapping class="main.java.entities.Privilege"/>
+        <mapping class="main.java.entities.IsIn"/>
+
     </session-factory>
 
 </hibernate-configuration>

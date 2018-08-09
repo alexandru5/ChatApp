@@ -1,40 +1,52 @@
-package entities;
+package main.java.entities;
 
 import javax.persistence.*;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
 
 @Entity
-@Table(name = "User")
+@Table(name = "`User`")
 public class User {
 
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="UserID")
+    @Column(name="UserID", unique = true, nullable = false)
     private int userID;
 
     @Column(name="Name")
     private String userName;
 
-    @Column(name="Email")
+    @Column(name="Email", unique = true, nullable = false)
     private String email;
 
-    @Column(name="Password")
+    @Column(name="Password", nullable = false)
     private String password;
 
-    @Column(name="ActivationToken")
+    @Column(name="ActivationToken", nullable = false)
     private String activationToken;
 
-    @Column(name="isActive")
+    @Column(name="isActive", nullable = false)
     private boolean isActive;
 
-    @Column(name="NotificationType")
+    @Column(name="NotificationType", nullable = false)
     private String notificationType;
 
-    @Column(name="CreatedAt")
-    private String createdAt;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="CreatedAt", nullable = false)
+    private Date createdAt;
+
+    @OneToMany(
+            mappedBy = "user",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private Set<IsIn> groups = new HashSet<>();
 
     public User() {}
 
-    public User(String userName, String email, String password, String activationToken, String notificationType, String createdAt) {
+    public User(String userName, String email, String password, String activationToken, String notificationType, Date createdAt) {
         this.userName = userName;
         this.email = email;
         this.password = password;
@@ -44,74 +56,108 @@ public class User {
         this.createdAt = createdAt;
     }
 
-    public int getId() {
+    public int getUserID() {
         return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     public String getUserName() {
         return userName;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public String getActivationToken() {
-        return activationToken;
-    }
-
-    public boolean isActive() {
-        return isActive;
-    }
-
-    public String getNotificationType() {
-        return notificationType;
-    }
-
-    public String getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setId(int userID) {
-        this.userID = userID;
-    }
-
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getActivationToken() {
+        return activationToken;
     }
 
     public void setActivationToken(String activationToken) {
         this.activationToken = activationToken;
     }
 
+    public boolean isActive() {
+        return isActive;
+    }
+
     public void setActive(boolean active) {
         isActive = active;
+    }
+
+    public String getNotificationType() {
+        return notificationType;
     }
 
     public void setNotificationType(String notificationType) {
         this.notificationType = notificationType;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Set<IsIn> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(Set<IsIn> groups) {
+        this.groups = groups;
+    }
+
+    public void addGroup(Group group) {
+        IsIn isInRel = new IsIn(this, group);
+        groups.add(isInRel);
+        //group.getUsers().add(isInRel);
+    }
+
+    public void removeGroup(Group group) {
+        for (Iterator<IsIn> iterator = groups.iterator();
+             iterator.hasNext(); ) {
+            IsIn isInRel = iterator.next();
+
+            if (isInRel.getUser().equals(this) &&
+                    isInRel.getGroup().equals(group)) {
+                iterator.remove();
+                //isInRel.getGroup().getUsers().remove(isInRel);
+                isInRel.setUser(null);
+                isInRel.setGroup(null);
+            }
+        }
     }
 
     @Override
     public String toString() {
         return "User [id=" + userID + ", userName=" + userName + ", email=" + email + ", pass=" + password +
-                ", active=" + isActive + ", activationTok=" + activationToken + "]";
+                ", active=" + isActive + ", activationTok=" + activationToken + "createdAt=" + createdAt + "]";
+    }
+
+    public void print() {
+        //for (Group g : groups)
+        //    System.out.println(g.getGroupID());
     }
 
 }

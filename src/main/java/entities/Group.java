@@ -1,33 +1,44 @@
-package entities;
+package main.java.entities;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-@Table(name = "Group")
+@Table(name = "`Group`")
 public class Group {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="GroupID")
+    @Column(name="GroupID", nullable = false)
     private int groupID;
 
     @Column(name="GroupName")
     private String groupName;
 
-    @Column(name="IsPrivate")
+    @Column(name="IsPrivate", nullable = false)
     private boolean isPrivate;
 
-    @Column(name="CreatedAt")
-    private String createdAt;
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="CreatedAt", nullable = false)
+    private Date createdAt;
 
-    @OneToOne
-    @JoinColumn(name="CreatedBy")
+    @OneToOne(cascade = CascadeType.ALL,
+              orphanRemoval = true)
+    @JoinColumn(name="CreatedBy", nullable = false)
     private User createdBy;
+
+    /*@OneToMany(
+            mappedBy = "group",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    private Set<IsIn> users = new HashSet<>();*/
+
 
     public Group() {}
 
-    public Group(int groupID, String groupName, boolean isPrivate, String createdAt, User createdBy) {
-        this.groupID = groupID;
+    public Group(String groupName, boolean isPrivate, Date createdAt, User createdBy) {
         this.groupName = groupName;
         this.isPrivate = isPrivate;
         this.createdAt = createdAt;
@@ -38,36 +49,36 @@ public class Group {
         return groupID;
     }
 
-    public String getGroupName() {
-        return groupName;
-    }
-
-    public boolean isPrivate() {
-        return isPrivate;
-    }
-
-    public String getCreatedAt() {
-        return createdAt;
-    }
-
-    public User getCreatedBy() {
-        return createdBy;
-    }
-
     public void setGroupID(int groupID) {
         this.groupID = groupID;
+    }
+
+    public String getGroupName() {
+        return groupName;
     }
 
     public void setGroupName(String groupName) {
         this.groupName = groupName;
     }
 
-    public void setPrivate(boolean isPrivate) {
-        this.isPrivate = isPrivate;
+    public boolean isPrivate() {
+        return isPrivate;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setPrivate(boolean aPrivate) {
+        isPrivate = aPrivate;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public User getCreatedBy() {
+        return createdBy;
     }
 
     public void setCreatedBy(User createdBy) {

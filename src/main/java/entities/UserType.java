@@ -1,6 +1,8 @@
-package entities;
+package main.java.entities;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "UserType")
@@ -13,6 +15,16 @@ public class UserType {
     @Column(name = "TypeName")
     private String typeName;
 
+    @ManyToMany(cascade = {
+            CascadeType.PERSIST,
+            CascadeType.MERGE
+    })
+    @JoinTable(name = "HasPrivilege",
+            joinColumns = @JoinColumn(name = "TypeID"),
+            inverseJoinColumns = @JoinColumn(name = "PrivilegeID")
+    )
+    private Set<Privilege> privileges = new HashSet<>();
+
     public UserType() {}
 
     public UserType(String typeName) {
@@ -20,20 +32,24 @@ public class UserType {
     }
 
     public int getTypeID() {
-
         return typeID;
-    }
-
-    public String getTypeName() {
-        return typeName;
     }
 
     public void setTypeID(int typeID) {
         this.typeID = typeID;
     }
 
+    public String getTypeName() {
+        return typeName;
+    }
+
     public void setTypeName(String typeName) {
         this.typeName = typeName;
+    }
+
+    public void print() {
+        for (Privilege g : privileges)
+            System.out.println(g.getPrivilegeID());
     }
 
     @Override
