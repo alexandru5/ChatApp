@@ -1,53 +1,41 @@
 package main.java;
 
-import main.java.entities.*;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
+import main.java.dao.UserRepoInterface;
+import main.java.entities.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-public class Main {
+import javax.sql.DataSource;
+import java.util.List;
+
+@SpringBootApplication
+@EnableJpaRepositories("main.java.dao")
+@EntityScan("main.java.entities")
+public class Main implements CommandLineRunner {
+    @Autowired
+    DataSource dataSource;
+
+    @Autowired
+    UserRepoInterface userRepo;
+
     public static void main(String[] args) {
-        User us;
-        SessionFactory factory = new Configuration()
-                                        .configure("hibernate.cfg.xml")
-                                        .buildSessionFactory();
+        SpringApplication.run(Main.class, args);
+    }
 
-        // create session
-        Session session = factory.getCurrentSession();
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            us = session.get(User.class, 8);
-
-            //session.delete(us);
-            //session.flush();
-            System.out.println("Get complete: " + us);
-            us.print();
-            //us.print();
-
-            // commit the transaction
-            session.getTransaction().commit();
-
-            System.out.println("Done!");
-        }
-        catch (Exception e) {
-            if (tx!=null) tx.rollback();
-        }
-        finally {
-            factory.close();
+    @Override
+    public void run(String... args) throws Exception {
+        //User us = new User ("Ion", "Dodo@gnmail.com", "qweqwrasd", "sdqe324435rsdf46543f", "phone", new java.util.Date());
+        //userRepo.save(us);
+        List<User> rep = userRepo.findAll();
+        System.out.println("DataSource: " + dataSource);
+        for (User u : rep) {
+            System.out.println(u);
         }
 
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("persistence-unit");
-//        try {
-//            EntityManager em = emf.createEntityManager();
-//            em.getTransaction().begin();
-//            em.persist(us);
-//            em.remove(us);
-//            em.getTransaction().commit();
-//            em.close();
-//        } finally {
-//            emf.close();
-//        }
+        System.exit(0);
     }
 }
