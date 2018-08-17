@@ -1,11 +1,11 @@
 package chatapp.dao.interfaces;
 
-import chatapp.entities.Message;
+import chatapp.entities.Privilege;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MessageRepoInterface extends JpaRepository<Message, Integer> {
+public interface PrivilegeRepoInterface extends JpaRepository<Privilege, Integer> {
 
-    Message findByMessageID(int id);
+    Privilege findByPrivilegeID(int id);
 }

@@ -23,7 +23,7 @@ public class User {
     @Column(name="Password", nullable = false)
     private String password;
 
-    @Column(name="ActivationToken", nullable = false)
+    @Column(name="ActivationToken", unique = true, nullable = false)
     private String activationToken;
 
     @Column(name="isActive", nullable = false)

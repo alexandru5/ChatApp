@@ -1,18 +1,16 @@
 package chatapp;
 
-import chatapp.dao.interfaces.UserRepoInterface;
-import chatapp.entities.User;
+import chatapp.dao.interfaces.NotificationRepoInterface;
+import chatapp.entities.Notification;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.List;
-
 @SpringBootApplication
 public class Main implements CommandLineRunner {
     @Autowired
-    UserRepoInterface userRepo;
+    NotificationRepoInterface userRepo;
 
     public static void main(String[] args) {
         SpringApplication.run(Main.class, args);
@@ -20,16 +18,13 @@ public class Main implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        //User us = new User ("Ion", "Dodo@gnmail.com", "qweqwrasd", "sdqe324435rsdf46543f", "phone", new java.util.Date());
-        // userRepo.save(us);
-        userRepo.deleteAll();
-        List<User> rep = userRepo.findAll();
+        //User us = userRepo.findByUserID(5);//= new User ("Ion", "Dodo@gnmail.com", "qweqwrasd", "sdqe324435rsdf46543f", "phone", new java.util.Date());
+        Notification g = userRepo.findByNotificationID(1);
+        //userRepo.save(us);
+        //userRepo.deleteAll();
+        //User rep = userRepo.findAll();
         //userRepo.deleteById(us.getUserID());
-
-        for (User u : rep) {
-            System.out.println(u);
-        }
-        //System.out.println(rep);
+        System.out.println(g);
 
         System.exit(0);
     }

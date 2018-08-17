@@ -1,11 +1,11 @@
 package chatapp.dao.interfaces;
 
-import chatapp.entities.Message;
+import chatapp.entities.Group;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface MessageRepoInterface extends JpaRepository<Message, Integer> {
+public interface GroupRepoInterface extends JpaRepository<Group, Integer> {
 
-    Message findByMessageID(int id);
+    Group findByGroupID(int id);
 }
