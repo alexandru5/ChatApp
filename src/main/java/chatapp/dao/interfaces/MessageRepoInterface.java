@@ -15,4 +15,7 @@ public interface MessageRepoInterface extends JpaRepository<Message, Integer> {
 
     @Query("SELECT m FROM Message m WHERE m.user.userID = :id")
     List<Message> findAllByUserID(@Param("id") int id);
+
+   /* //@Query("DELETE m FROM Message m WHERE m.UserID = :id")
+    void deleteByUserID(@RequestParam("id") int id);*/
 }

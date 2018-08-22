@@ -2,32 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="861f4eba-2831-43af-8f71-a51a698f1c0f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/MessageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/4f4a5375-465d-4383-be3a-b7ee75495b6b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4f4a5375-465d-4383-be3a-b7ee75495b6b.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chatapp/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chatapp/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DB_scripts/chatscript.sql" beforeDir="false" afterPath="$PROJECT_DIR$/DB_scripts/chatscript.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/chatapp/dao/interfaces/MessageRepoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chatapp/dao/interfaces/MessageRepoInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/chatapp/dao/interfaces/UserRepoInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chatapp/dao/interfaces/UserRepoInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chatapp/dao/repositories/GroupRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/GroupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chatapp/dao/repositories/MessageRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chatapp/dao/repositories/NotificationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/NotificationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chatapp/dao/repositories/PrivilegeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/PrivilegeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chatapp/dao/repositories/UserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chatapp/dao/repositories/UserTypeRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/UserTypeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chatapp/embedded/IsInID.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chatapp/embedded/IsInID.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/chatapp/entities/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chatapp/entities/Group.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/chatapp/entities/IsIn.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chatapp/entities/IsIn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/chatapp/entities/Message.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chatapp/entities/Message.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/chatapp/entities/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/chatapp/entities/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/chatapp/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chatapp/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/chatapp/dao/interfaces/MessageRepoInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chatapp/dao/interfaces/MessageRepoInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/chatapp/dao/interfaces/UserRepoInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chatapp/dao/interfaces/UserRepoInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/chatapp/dao/repositories/GroupRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/chatapp/dao/repositories/MessageRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/chatapp/dao/repositories/UserRepository.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/chatapp/dao/repositories/UserTypeRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/chatapp/dao/controllers/MessageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chatapp/dao/controllers/MessageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/chatapp/dao/controllers/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chatapp/dao/controllers/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/chatapp/embedded/IsInID.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chatapp/embedded/IsInID.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/chatapp/entities/Group.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chatapp/entities/Group.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/chatapp/entities/IsIn.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chatapp/entities/IsIn.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/chatapp/entities/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chatapp/entities/Message.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/chatapp/entities/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/chatapp/entities/User.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -46,7 +36,7 @@
     <SUITE FILE_PATH="coverage/ChatApp$Main__1_.ic" NAME="Main (1) Coverage Results" MODIFIED="1533905110469" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>main.java.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/ChatApp$Main.ic" NAME="Main Coverage Results" MODIFIED="1533281343229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/ChatApp$Main.ic" NAME="Main Coverage Results" MODIFIED="1534943518076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -80,21 +70,21 @@
         <item name="chat_app@192.168.99.100" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="chat_app: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="Message: table" type="98d5ac3d:MysqlImplModel$Table" />
+        <item name="Privilege: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="chat_app@192.168.99.100" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="chat_app: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="Privilege: table" type="98d5ac3d:MysqlImplModel$Table" />
+        <item name="UserType: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="application.properties" pinned="false" current-in-tab="true">
+      <file leaf-file-name="application.properties" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
@@ -103,25 +93,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/UserController.java">
+      <file leaf-file-name="UserRepoInterface.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/dao/interfaces/UserRepoInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="153">
+              <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IsIn.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/entities/IsIn.java">
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+            <state relative-caret-position="304">
+              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#1697#1698#0" expanded="true" />
+                <element signature="e#1733#1734#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -130,20 +119,8 @@
       <file leaf-file-name="Message.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/entities/Message.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="38" column="35" lean-forward="true" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GroupController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/GroupController.java">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+              <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -151,11 +128,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MessageController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/MessageController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/entities/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+            <state relative-caret-position="238">
+              <caret line="38" column="17" lean-forward="true" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1618#1619#0" expanded="true" />
@@ -190,10 +176,10 @@
                 <element signature="e#2774#2775#0" expanded="true" />
                 <element signature="e#2822#2823#0" expanded="true" />
                 <element signature="e#2864#2865#0" expanded="true" />
-                <element signature="e#2901#2902#0" expanded="true" />
-                <element signature="e#2930#2931#0" expanded="true" />
-                <element signature="e#2978#2979#0" expanded="true" />
-                <element signature="e#3014#3015#0" expanded="true" />
+                <element signature="e#2920#2921#0" expanded="true" />
+                <element signature="e#2949#2950#0" expanded="true" />
+                <element signature="e#2997#2998#0" expanded="true" />
+                <element signature="e#3033#3034#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -234,8 +220,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/embedded/IsIn.java" />
-        <option value="$PROJECT_DIR$/src/main/embedded/IsInID.java" />
         <option value="$PROJECT_DIR$/src/main/java/entities/embedded/IsInID.java" />
         <option value="$PROJECT_DIR$/src/main/entities/Message.java" />
         <option value="$PROJECT_DIR$/src/hibernate.cfg.fxml" />
@@ -273,18 +257,20 @@
         <option value="$PROJECT_DIR$/src/main/java/chatapp/dao/interfaces/PrivilegeRepoInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/chatapp/dao/repositories/PrivilegeRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/chatapp/dao/repositories/UserRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/chatapp/dao/interfaces/MessageRepoInterface.java" />
         <option value="$PROJECT_DIR$/src/main/java/chatapp/tests/MessageRepositoryTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/chatapp/dao/repositories/MessageRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/chatapp/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/GroupController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/chatapp/dao/interfaces/UserRepoInterface.java" />
-        <option value="$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/chatapp/embedded/IsInID.java" />
-        <option value="$PROJECT_DIR$/src/main/java/chatapp/entities/Message.java" />
-        <option value="$PROJECT_DIR$/src/main/java/chatapp/entities/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/chatapp/entities/IsIn.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/chatapp/embedded/IsInID.java" />
+        <option value="$PROJECT_DIR$/src/main/java/chatapp/entities/IsIn.java" />
+        <option value="$PROJECT_DIR$/src/main/java/chatapp/entities/Group.java" />
+        <option value="$PROJECT_DIR$/src/main/java/chatapp/entities/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/chatapp/entities/Message.java" />
+        <option value="$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/MessageController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/chatapp/dao/interfaces/MessageRepoInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/chatapp/dao/interfaces/UserRepoInterface.java" />
       </list>
     </option>
   </component>
@@ -595,12 +581,12 @@
       <workItem from="1533121152672" duration="62039000" />
       <workItem from="1533902600576" duration="26436000" />
       <workItem from="1534426028549" duration="1283000" />
-      <workItem from="1534491358598" duration="27295000" />
+      <workItem from="1534491358598" duration="34256000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117053000" />
+    <option name="totallyTimeSpent" value="124014000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -613,6 +599,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50192803" side_tool="true" weight="0.21515562" />
@@ -620,7 +607,7 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info anchor="right" id="Database" order="3" sideWeight="0.49774775" visible="true" weight="0.2114396" />
+      <window_info anchor="right" id="Database" order="3" sideWeight="0.4955947" visible="true" weight="0.2114396" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -632,11 +619,12 @@
       <window_info anchor="bottom" id="Java Enterprise" order="7" weight="0.32882273" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49807197" visible="true" weight="0.64682" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49807197" visible="true" weight="0.3856563" />
+      <window_info anchor="right" id="Coverage" order="3" sideWeight="0.50440526" side_tool="true" visible="true" weight="0.2114396" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32882273" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.4993573" weight="0.32882273" />
       <window_info id="Persistence" order="2" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18251929" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18251929" />
       <window_info anchor="right" id="Bean Validation" order="3" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
@@ -648,7 +636,6 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32882273" />
-      <window_info anchor="right" id="Coverage" order="3" sideWeight="0.5022523" side_tool="true" weight="0.32969153" />
     </layout>
     <layout-to-restore>
       <window_info id="Persistence" order="2" side_tool="true" />
@@ -927,29 +914,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/tests/MessageRepositoryTest.java">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/dao/interfaces/MessageRepoInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/MessageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#409#410#0" expanded="true" />
-            <element signature="e#456#457#0" expanded="true" />
-            <element signature="e#487#488#0" expanded="true" />
-            <element signature="e#534#535#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
@@ -959,13 +923,6 @@
             <element signature="e#519#520#0" expanded="true" />
             <element signature="e#574#575#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/dao/interfaces/UserRepoInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -979,30 +936,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/entities/Group.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/entities/Group.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="23" column="62" lean-forward="true" selection-start-line="23" selection-start-column="62" selection-end-line="23" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1767#1768#0" expanded="true" />
+            <element signature="e#1799#1800#0" expanded="true" />
+            <element signature="e#1847#1848#0" expanded="true" />
+            <element signature="e#1889#1890#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/embedded/IsInID.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="25" lean-forward="true" selection-start-column="25" selection-end-column="25" />
+        <state relative-caret-position="119">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/dao/interfaces/MessageRepoInterface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="225">
+          <caret line="15" column="12" selection-start-line="15" selection-start-column="12" selection-end-line="15" selection-end-column="12" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1011,28 +979,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/entities/IsIn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="14" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+        <state relative-caret-position="170">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/dao/interfaces/UserRepoInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1697#1698#0" expanded="true" />
+            <element signature="e#1733#1734#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/entities/Message.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="35" lean-forward="true" selection-start-line="38" selection-start-column="35" selection-end-line="38" selection-end-column="35" />
+        <state relative-caret-position="255">
+          <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/dao/controllers/MessageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chatapp/entities/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="238">
+          <caret line="38" column="17" lean-forward="true" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1618#1619#0" expanded="true" />
@@ -1067,18 +1061,11 @@
             <element signature="e#2774#2775#0" expanded="true" />
             <element signature="e#2822#2823#0" expanded="true" />
             <element signature="e#2864#2865#0" expanded="true" />
-            <element signature="e#2901#2902#0" expanded="true" />
-            <element signature="e#2930#2931#0" expanded="true" />
-            <element signature="e#2978#2979#0" expanded="true" />
-            <element signature="e#3014#3015#0" expanded="true" />
+            <element signature="e#2920#2921#0" expanded="true" />
+            <element signature="e#2949#2950#0" expanded="true" />
+            <element signature="e#2997#2998#0" expanded="true" />
+            <element signature="e#3033#3034#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
         </state>
       </provider>
     </entry>

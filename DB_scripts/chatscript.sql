@@ -24,11 +24,11 @@ CREATE TABLE `Group` (
   `GroupName` varchar(100) DEFAULT NULL,
   `IsPrivate` tinyint(1) NOT NULL,
   `CreatedAt` datetime NOT NULL,
-  `CreatedBy` int(11) NOT NULL,
+  `CreatedBy` int(11) NULL,
   PRIMARY KEY (`GroupID`),
   UNIQUE KEY `GroupName` (`GroupName`),
   KEY `CreatedBy` (`CreatedBy`),
-  CONSTRAINT `Group_ibfk_1` FOREIGN KEY (`CreatedBy`) REFERENCES `User` (`userid`)
+  CONSTRAINT `Group_ibfk_1` FOREIGN KEY (`CreatedBy`) REFERENCES `User` (`userid`) ON DELETE SET NULL
 );
 
 CREATE TABLE `IsIn` (
@@ -80,7 +80,7 @@ CREATE TABLE `Message` (
   KEY `UserID` (`UserID`),
   KEY `NotificationID` (`NotificationID`),
   CONSTRAINT `Message_ibfk_1` FOREIGN KEY (`GroupID`) REFERENCES `Group` (`groupid`),
-  CONSTRAINT `Message_ibfk_2` FOREIGN KEY (`UserID`) REFERENCES `User` (`userid`),
+  CONSTRAINT `Message_ibfk_2` FOREIGN KEY (`UserID`) REFERENCES `User` (`userid`) ON DELETE CASCADE,
   CONSTRAINT `Message_ibfk_3` FOREIGN KEY (`NotificationID`) REFERENCES `Notification` (`notificationid`)
 );
 

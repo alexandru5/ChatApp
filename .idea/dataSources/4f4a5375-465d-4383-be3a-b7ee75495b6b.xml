@@ -1139,314 +1139,333 @@
     <column id="289" parent="277" name="CreatedBy">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="290" parent="277" name="CreatedBy">
+    <index id="290" parent="277" name="GroupName">
+      <ColNames>GroupName</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="291" parent="277" name="CreatedBy">
       <ColNames>CreatedBy</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="291" parent="277" name="PRIMARY">
+    <key id="292" parent="277" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>GroupID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="292" parent="277" name="Group_ibfk_1">
+    <key id="293" parent="277" name="GroupName">
+      <ColNames>GroupName</ColNames>
+      <UnderlyingIndexName>GroupName</UnderlyingIndexName>
+    </key>
+    <foreign-key id="294" parent="277" name="Group_ibfk_1">
       <ColNames>CreatedBy</ColNames>
       <RefSchemaName>chat_app</RefSchemaName>
       <RefTableName>User</RefTableName>
       <RefColNames>userid</RefColNames>
+      <OnDelete>set-null</OnDelete>
     </foreign-key>
-    <column id="293" parent="278" name="TypeID">
+    <column id="295" parent="278" name="TypeID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="294" parent="278" name="PrivilegeID">
+    <column id="296" parent="278" name="PrivilegeID">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="295" parent="278" name="PrivilegeID">
+    <index id="297" parent="278" name="PrivilegeID">
       <ColNames>PrivilegeID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="296" parent="278" name="PRIMARY">
+    <key id="298" parent="278" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>TypeID
 PrivilegeID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="297" parent="278" name="HasPrivilege_ibfk_1">
+    <foreign-key id="299" parent="278" name="HasPrivilege_ibfk_1">
       <ColNames>TypeID</ColNames>
       <RefSchemaName>chat_app</RefSchemaName>
       <RefTableName>UserType</RefTableName>
       <RefColNames>typeid</RefColNames>
     </foreign-key>
-    <foreign-key id="298" parent="278" name="HasPrivilege_ibfk_2">
+    <foreign-key id="300" parent="278" name="HasPrivilege_ibfk_2">
       <ColNames>PrivilegeID</ColNames>
       <RefSchemaName>chat_app</RefSchemaName>
       <RefTableName>Privilege</RefTableName>
       <RefColNames>privilegeid</RefColNames>
     </foreign-key>
-    <column id="299" parent="279" name="UserID">
+    <column id="301" parent="279" name="UserID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="300" parent="279" name="GroupID">
+    <column id="302" parent="279" name="GroupID">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="301" parent="279" name="TypeID">
+    <column id="303" parent="279" name="TypeID">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="302" parent="279" name="IsBlocked">
+    <column id="304" parent="279" name="IsBlocked">
       <Position>4</Position>
       <DataType>bit(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="303" parent="279" name="GroupID">
+    <index id="305" parent="279" name="GroupID">
       <ColNames>GroupID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="304" parent="279" name="TypeID">
+    <index id="306" parent="279" name="TypeID">
       <ColNames>TypeID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="305" parent="279" name="PRIMARY">
+    <key id="307" parent="279" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>UserID
 GroupID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="306" parent="279" name="IsIn_ibfk_1">
+    <foreign-key id="308" parent="279" name="IsIn_ibfk_1">
       <ColNames>UserID</ColNames>
       <RefSchemaName>chat_app</RefSchemaName>
       <RefTableName>User</RefTableName>
       <RefColNames>userid</RefColNames>
     </foreign-key>
-    <foreign-key id="307" parent="279" name="IsIn_ibfk_2">
+    <foreign-key id="309" parent="279" name="IsIn_ibfk_2">
       <ColNames>GroupID</ColNames>
       <RefSchemaName>chat_app</RefSchemaName>
       <RefTableName>Group</RefTableName>
       <RefColNames>groupid</RefColNames>
     </foreign-key>
-    <foreign-key id="308" parent="279" name="IsIn_ibfk_3">
+    <foreign-key id="310" parent="279" name="IsIn_ibfk_3">
       <ColNames>TypeID</ColNames>
       <RefSchemaName>chat_app</RefSchemaName>
       <RefTableName>UserType</RefTableName>
       <RefColNames>typeid</RefColNames>
     </foreign-key>
-    <column id="309" parent="280" name="MessageID">
+    <column id="311" parent="280" name="MessageID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="310" parent="280" name="GroupID">
+    <column id="312" parent="280" name="GroupID">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="311" parent="280" name="UserID">
+    <column id="313" parent="280" name="UserID">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="312" parent="280" name="Message">
+    <column id="314" parent="280" name="Message">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="313" parent="280" name="CreatedAt">
+    <column id="315" parent="280" name="CreatedAt">
       <Position>5</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="314" parent="280" name="NotificationID">
+    <column id="316" parent="280" name="NotificationID">
       <Position>6</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="315" parent="280" name="GroupID">
+    <index id="317" parent="280" name="GroupID">
       <ColNames>GroupID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="316" parent="280" name="UserID">
+    <index id="318" parent="280" name="UserID">
       <ColNames>UserID</ColNames>
       <Type>btree</Type>
     </index>
-    <index id="317" parent="280" name="NotificationID">
+    <index id="319" parent="280" name="NotificationID">
       <ColNames>NotificationID</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="318" parent="280" name="PRIMARY">
+    <key id="320" parent="280" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>MessageID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="319" parent="280" name="Message_ibfk_1">
+    <foreign-key id="321" parent="280" name="Message_ibfk_1">
       <ColNames>GroupID</ColNames>
       <RefSchemaName>chat_app</RefSchemaName>
       <RefTableName>Group</RefTableName>
       <RefColNames>groupid</RefColNames>
     </foreign-key>
-    <foreign-key id="320" parent="280" name="Message_ibfk_2">
+    <foreign-key id="322" parent="280" name="Message_ibfk_2">
       <ColNames>UserID</ColNames>
       <RefSchemaName>chat_app</RefSchemaName>
       <RefTableName>User</RefTableName>
       <RefColNames>userid</RefColNames>
+      <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <foreign-key id="321" parent="280" name="Message_ibfk_3">
+    <foreign-key id="323" parent="280" name="Message_ibfk_3">
       <ColNames>NotificationID</ColNames>
       <RefSchemaName>chat_app</RefSchemaName>
       <RefTableName>Notification</RefTableName>
       <RefColNames>notificationid</RefColNames>
     </foreign-key>
-    <column id="322" parent="281" name="NotificationID">
+    <column id="324" parent="281" name="NotificationID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="323" parent="281" name="NotificationMessage">
+    <column id="325" parent="281" name="NotificationMessage">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="324" parent="281" name="Frequency">
+    <column id="326" parent="281" name="Frequency">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="325" parent="281" name="CreatedAt">
+    <column id="327" parent="281" name="CreatedAt">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="326" parent="281" name="UpdatedAt">
+    <column id="328" parent="281" name="UpdatedAt">
       <Position>5</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="327" parent="281" name="PRIMARY">
+    <key id="329" parent="281" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>NotificationID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="328" parent="282" name="PrivilegeID">
+    <column id="330" parent="282" name="PrivilegeID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="329" parent="282" name="PrivilegeName">
+    <column id="331" parent="282" name="PrivilegeName">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="330" parent="282" name="PRIMARY">
+    <key id="332" parent="282" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>PrivilegeID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="331" parent="283" name="UserID">
+    <column id="333" parent="283" name="UserID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="332" parent="283" name="Name">
+    <column id="334" parent="283" name="Name">
       <Position>2</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="333" parent="283" name="Email">
+    <column id="335" parent="283" name="Email">
       <Position>3</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="334" parent="283" name="Password">
+    <column id="336" parent="283" name="Password">
       <Position>4</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="335" parent="283" name="ActivationToken">
+    <column id="337" parent="283" name="ActivationToken">
       <Position>5</Position>
       <DataType>varchar(40)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="336" parent="283" name="isActive">
+    <column id="338" parent="283" name="isActive">
       <Position>6</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="337" parent="283" name="NotificationType">
+    <column id="339" parent="283" name="NotificationType">
       <Position>7</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="338" parent="283" name="CreatedAt">
+    <column id="340" parent="283" name="CreatedAt">
       <Position>8</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="339" parent="283" name="Email">
+    <index id="341" parent="283" name="Email">
       <ColNames>Email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="340" parent="283" name="PRIMARY">
+    <index id="342" parent="283" name="ActivationToken">
+      <ColNames>ActivationToken</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="343" parent="283" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>UserID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="341" parent="283" name="Email">
+    <key id="344" parent="283" name="Email">
       <ColNames>Email</ColNames>
       <UnderlyingIndexName>Email</UnderlyingIndexName>
     </key>
-    <column id="342" parent="284" name="TypeID">
+    <key id="345" parent="283" name="ActivationToken">
+      <ColNames>ActivationToken</ColNames>
+      <UnderlyingIndexName>ActivationToken</UnderlyingIndexName>
+    </key>
+    <column id="346" parent="284" name="TypeID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="343" parent="284" name="TypeName">
+    <column id="347" parent="284" name="TypeName">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="344" parent="284" name="PRIMARY">
+    <key id="348" parent="284" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>TypeID</ColNames>
       <Primary>1</Primary>

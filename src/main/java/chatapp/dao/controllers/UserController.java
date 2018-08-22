@@ -30,6 +30,7 @@ public class UserController {
 
     @RequestMapping(value = "/deletebyid", method = RequestMethod.DELETE)
     public void deleteUserByID(@RequestParam("id") int id) {
+        //Optional<User> s = repo.findByUserID(id);
         repo.deleteById(id);
     }
 
@@ -43,9 +44,9 @@ public class UserController {
         return repo.findByEmail(email);
     }
 
-    @RequestMapping("/findall")
-    public List<User> findAllUsers() {
-        return repo.findAll();
+    @RequestMapping("/findallingroup")
+    public List<User> findAllUsersInGroup(@RequestParam("id") int id) {
+        return repo.getUsersByGroupID(id);
     }
 
 

@@ -1,8 +1,6 @@
 package chatapp.entities;
 
 import chatapp.embedded.IsInID;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -11,7 +9,6 @@ import java.util.Objects;
 @Table(name = "IsIn")
 public class IsIn {
 
-    @OnDelete(action = OnDeleteAction.CASCADE)
     @EmbeddedId
     IsInID id;
 
