@@ -1,5 +1,8 @@
 package chatapp.entities;
 
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -36,10 +39,8 @@ public class User {
     @Column(name="CreatedAt", nullable = false)
     private Date createdAt;
 
-    @ManyToMany(cascade = {
-            CascadeType.PERSIST,
-            CascadeType.MERGE
-    })
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "IsIn",
             joinColumns = @JoinColumn(name = "UserID"),
             inverseJoinColumns = @JoinColumn(name = "GroupID")

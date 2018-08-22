@@ -26,7 +26,7 @@ public class Message {
     @Column(name="CreatedAt")
     private Date createdAt;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval=true)
+    @OneToOne
     @JoinColumn(name = "NotificationID")
     private Notification notification;
 

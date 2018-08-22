@@ -1,11 +1,11 @@
-package chatapp.dao.repositories;
+package chatapp.dao.controllers;
 
 import chatapp.dao.interfaces.PrivilegeRepoInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class PrivilegeRepository {
+public class PrivilegeController {
 
     @Autowired
     PrivilegeRepoInterface repo;
