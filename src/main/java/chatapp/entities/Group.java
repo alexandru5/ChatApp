@@ -21,7 +21,7 @@ public class Group {
     @Column(name="CreatedAt", nullable = false)
     private Date createdAt;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne
     @JoinColumn(name="CreatedBy", nullable = false)
     private User createdBy;
 

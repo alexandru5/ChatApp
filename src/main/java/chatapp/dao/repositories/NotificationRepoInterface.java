@@ -1,4 +1,4 @@
-package chatapp.dao.interfaces;
+package chatapp.dao.repositories;
 
 import chatapp.entities.Notification;
 import org.springframework.data.jpa.repository.JpaRepository;

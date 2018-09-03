@@ -1400,72 +1400,78 @@ GroupID</ColNames>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="336" parent="283" name="Password">
+    <column id="336" parent="283" name="PhoneNo">
       <Position>4</Position>
+      <DataType>varchar(17)|0s</DataType>
+      <NotNull>1</NotNull>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="337" parent="283" name="Password">
+      <Position>5</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="337" parent="283" name="ActivationToken">
-      <Position>5</Position>
-      <DataType>varchar(40)|0s</DataType>
+    <column id="338" parent="283" name="ActivationToken">
+      <Position>6</Position>
+      <DataType>varchar(64)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="338" parent="283" name="isActive">
-      <Position>6</Position>
+    <column id="339" parent="283" name="isActive">
+      <Position>7</Position>
       <DataType>tinyint(1)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="339" parent="283" name="NotificationType">
-      <Position>7</Position>
+    <column id="340" parent="283" name="NotificationType">
+      <Position>8</Position>
       <DataType>varchar(30)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="340" parent="283" name="CreatedAt">
-      <Position>8</Position>
+    <column id="341" parent="283" name="CreatedAt">
+      <Position>9</Position>
       <DataType>datetime|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="341" parent="283" name="Email">
+    <index id="342" parent="283" name="Email">
       <ColNames>Email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <index id="342" parent="283" name="ActivationToken">
+    <index id="343" parent="283" name="ActivationToken">
       <ColNames>ActivationToken</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="343" parent="283" name="PRIMARY">
+    <key id="344" parent="283" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>UserID</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="344" parent="283" name="Email">
+    <key id="345" parent="283" name="Email">
       <ColNames>Email</ColNames>
       <UnderlyingIndexName>Email</UnderlyingIndexName>
     </key>
-    <key id="345" parent="283" name="ActivationToken">
+    <key id="346" parent="283" name="ActivationToken">
       <ColNames>ActivationToken</ColNames>
       <UnderlyingIndexName>ActivationToken</UnderlyingIndexName>
     </key>
-    <column id="346" parent="284" name="TypeID">
+    <column id="347" parent="284" name="TypeID">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="347" parent="284" name="TypeName">
+    <column id="348" parent="284" name="TypeName">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="348" parent="284" name="PRIMARY">
+    <key id="349" parent="284" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>TypeID</ColNames>
       <Primary>1</Primary>

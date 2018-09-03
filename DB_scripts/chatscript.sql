@@ -3,8 +3,9 @@ CREATE TABLE `User` (
   `UserID` int(11) NOT NULL AUTO_INCREMENT,
   `Name` varchar(40) NOT NULL,
   `Email` varchar(40) NOT NULL,
+  `PhoneNo` varchar(17) NOT NULL,
   `Password` varchar(30) NOT NULL,
-  `ActivationToken` varchar(40) NOT NULL,
+  `ActivationToken` varchar(64) NOT NULL,
   `isActive` tinyint(1) NOT NULL,
   `NotificationType` varchar(30) NOT NULL,
   `CreatedAt` datetime NOT NULL,
@@ -85,14 +86,14 @@ CREATE TABLE `Message` (
 );
 
 #insert users
-INSERT INTO `User`(`Name`, `Email`, `Password`, `ActivationToken`, `IsActive`, `NotificationType`, `CreatedAt`) VALUES("Ion", "Dodo@gnmail.com", "qweqwrasd", "asfd43453fsw45435f3rsdf", false, "phone", NOW());
-INSERT INTO `User`(`Name`, `Email`, `Password`, `ActivationToken`, `IsActive`, `NotificationType`, `CreatedAt`) VALUES("Mircea", "Popovic@yahoo.com", "asdwasresas", "asfd43dh6hbv545f3rsdf", false, "email", NOW());
-INSERT INTO `User`(`Name`, `Email`, `Password`, `ActivationToken`, `IsActive`, `NotificationType`, `CreatedAt`) VALUES("Bubu", "Nebuna", "sqwug=psulda", "4sdf45xvhttq5f3rsdf", false, "phone", NOW());
-INSERT INTO `User`(`Name`, `Email`, `Password`, `ActivationToken`, `IsActive`, `NotificationType`, `CreatedAt`) VALUES("Mirel", "Radoi@gnmail.com", "amnammingeatraglapoarta", "a2cvrhytr56gf435f56544f", false, "phone", NOW());
-INSERT INTO `User`(`Name`, `Email`, `Password`, `ActivationToken`, `IsActive`, `NotificationType`, `CreatedAt`) VALUES("Viorel", "Liss@yahoo.com", "fosilaepava", "zxcnyy3523xzc2421fwedf", false, "email", NOW());
-INSERT INTO `User`(`Name`, `Email`, `Password`, `ActivationToken`, `IsActive`, `NotificationType`, `CreatedAt`) VALUES("Dorian", "Pupa@yahoo.com", "qweqsdsd", "a123asdxzcvtyilkoppf", false, "phone", NOW());
-INSERT INTO `User`(`Name`, `Email`, `Password`, `ActivationToken`, `IsActive`, `NotificationType`, `CreatedAt`) VALUES("Mssd", "Popc@gnmail.com", "axcas", "cbghy6574353fdsgtr454dvz", false, "email", NOW());
-INSERT INTO `User`(`Name`, `Email`, `Password`, `ActivationToken`, `IsActive`, `NotificationType`, `CreatedAt`) VALUES("Buabd", "Neba@yahoo.com", "43dfezcxvr3", "ascvbtu46fs1w2d2e32vfdtf", false, "email", NOW());
+INSERT INTO `User`(`Name`, `Email`, `PhoneNo`, `Password`, `ActivationToken`, `IsActive`, `NotificationType`, `CreatedAt`) VALUES("Ion", "Dodo@gnmail.com", "+40763242343", "qweqwrasd", "asfd43453fsw45435f3rsdf", false, "phone", NOW());
+INSERT INTO `User`(`Name`, `Email`, `PhoneNo`, `Password`, `ActivationToken`, `IsActive`, `NotificationType`, `CreatedAt`) VALUES("Mircea", "Popovic@yahoo.com", "+40781200239", "asdwasresas", "asfd43dh6hbv545f3rsdf", false, "email", NOW());
+INSERT INTO `User`(`Name`, `Email`, `PhoneNo`, `Password`, `ActivationToken`, `IsActive`, `NotificationType`, `CreatedAt`) VALUES("Bubu", "Nebuna@nebunii.org", "+40760900923", "sqwug=psulda", "4sdf45xvhttq5f3rsdf", false, "phone", NOW());
+INSERT INTO `User`(`Name`, `Email`, `PhoneNo`, `Password`, `ActivationToken`, `IsActive`, `NotificationType`, `CreatedAt`) VALUES("Mirel", "Radoi@gnmail.com", "+40780901239", "amnammingeatraglapoarta", "a2cvrhytr56gf435f56544f", false, "phone", NOW());
+INSERT INTO `User`(`Name`, `Email`, `PhoneNo`, `Password`, `ActivationToken`, `IsActive`, `NotificationType`, `CreatedAt`) VALUES("Viorel", "Liss@yahoo.com", "+40721029358", "fosilaepava", "zxcnyy3523xzc2421fwedf", false, "email", NOW());
+INSERT INTO `User`(`Name`, `Email`, `PhoneNo`, `Password`, `ActivationToken`, `IsActive`, `NotificationType`, `CreatedAt`) VALUES("Dorian", "Pupa@yahoo.com", "+40749126049", "qweqsdsd", "a123asdxzcvtyilkoppf", false, "phone", NOW());
+INSERT INTO `User`(`Name`, `Email`, `PhoneNo`, `Password`, `ActivationToken`, `IsActive`, `NotificationType`, `CreatedAt`) VALUES("Mssd", "Popc@gnmail.com", "+40745242644", "axcas", "cbghy6574353fdsgtr454dvz", false, "email", NOW());
+INSERT INTO `User`(`Name`, `Email`, `PhoneNo`, `Password`, `ActivationToken`, `IsActive`, `NotificationType`, `CreatedAt`) VALUES("Buabd", "Neba@yahoo.com", "+40725432343", "43dfezcxvr3", "ascvbtu46fs1w2d2e32vfdtf", false, "email", NOW());
 
 #insert groups
 INSERT INTO `Group`(`GroupName`, `IsPrivate`, `CreatedAt`, `CreatedBy`) VALUES("Marocanii", false, NOW(), 4);

@@ -1,5 +1,7 @@
 package chatapp.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
@@ -19,6 +21,9 @@ public class User {
 
     @Column(name="Email", unique = true, nullable = false)
     private String email;
+
+    @Column(name="PhoneNo", nullable = false)
+    private String phoneNo;
 
     @Column(name="Password", nullable = false)
     private String password;
@@ -41,13 +46,16 @@ public class User {
             joinColumns = @JoinColumn(name = "UserID"),
             inverseJoinColumns = @JoinColumn(name = "GroupID")
     )
+    @JsonIgnore
     private Set<Group> groups = new HashSet<>();
 
     public User() {}
 
-    public User(String userName, String email, String password, String activationToken, String notificationType, Date createdAt) {
+    public User(String userName, String email, String phoneNo, String password,
+                String activationToken, String notificationType, Date createdAt) {
         this.userName = userName;
         this.email = email;
+        this.phoneNo = phoneNo;
         this.password = password;
         this.activationToken = activationToken;
         this.isActive = false;
@@ -77,6 +85,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 
     public String getPassword() {
@@ -129,8 +145,8 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [id=" + userID + ", userName=" + userName + ", email=" + email + ", pass=" + password +
-                ", active=" + isActive + ", activationTok=" + activationToken + "createdAt=" + createdAt + "]";
+        return "User [id=" + userID + ", userName=" + userName + ", email=" + email + ", phoneNo=" + phoneNo + ", pass="
+                + password + ", active=" + isActive + ", activationTok=" + activationToken + "createdAt=" + createdAt + "]";
     }
 
     public void print() {

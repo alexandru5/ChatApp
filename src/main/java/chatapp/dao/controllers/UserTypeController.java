@@ -1,7 +1,7 @@
 package chatapp.dao.controllers;
 
 
-import chatapp.dao.interfaces.UserTypeRepoInterface;
+import chatapp.dao.repositories.UserTypeRepoInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
