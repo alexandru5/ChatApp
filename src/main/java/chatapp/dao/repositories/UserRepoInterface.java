@@ -22,6 +22,7 @@ public interface UserRepoInterface extends JpaRepository<User, Integer> {
 
     List<User> findAll();
     boolean existsById(Integer integer);
+    boolean existsByEmail(String email);
 
     @Modifying(clearAutomatically = true)
     @Query("UPDATE User u SET u.userName = :name WHERE u.userID = :id")

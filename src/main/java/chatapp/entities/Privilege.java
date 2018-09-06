@@ -8,8 +8,7 @@ import java.util.Set;
 @Table(name = "Privilege")
 public class Privilege {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="PrivilegeID")
+    @Column(name="PrivilegeID", unique = true)
     private int privilegeID;
 
     @Column(name="PrivilegeName")
@@ -28,12 +27,12 @@ public class Privilege {
         return privilegeID;
     }
 
-    public String getPrivilegeName() {
-        return privilegeName;
-    }
-
     public void setPrivilegeID(int privilegeID) {
         this.privilegeID = privilegeID;
+    }
+
+    public String getPrivilegeName() {
+        return privilegeName;
     }
 
     public void setPrivilegeName(String privilegeName) {

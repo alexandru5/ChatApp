@@ -4,7 +4,7 @@ CREATE TABLE `User` (
   `Name` varchar(40) NOT NULL,
   `Email` varchar(40) NOT NULL,
   `PhoneNo` varchar(17) NOT NULL,
-  `Password` varchar(30) NOT NULL,
+  `Password` varchar(256) NOT NULL,
   `ActivationToken` varchar(64) NOT NULL,
   `isActive` tinyint(1) NOT NULL,
   `NotificationType` varchar(30) NOT NULL,
@@ -65,8 +65,8 @@ CREATE TABLE `HasPrivilege` (
   `PrivilegeID` int(11) NOT NULL,
   PRIMARY KEY (`TypeID`,`PrivilegeID`),
   KEY `PrivilegeID` (`PrivilegeID`),
-  CONSTRAINT `HasPrivilege_ibfk_1` FOREIGN KEY (`TypeID`) REFERENCES `UserType` (`typeid`),
-  CONSTRAINT `HasPrivilege_ibfk_2` FOREIGN KEY (`PrivilegeID`) REFERENCES `Privilege` (`privilegeid`)
+  CONSTRAINT `HasPrivilege_ibfk_1` FOREIGN KEY (`TypeID`) REFERENCES `UserType` (`typeid`) ON DELETE CASCADE,
+  CONSTRAINT `HasPrivilege_ibfk_2` FOREIGN KEY (`PrivilegeID`) REFERENCES `Privilege` (`privilegeid`) ON DELETE CASCADE
 );
 
 CREATE TABLE `Message` (

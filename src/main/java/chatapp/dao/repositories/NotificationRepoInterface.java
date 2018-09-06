@@ -4,8 +4,12 @@ import chatapp.entities.Notification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface NotificationRepoInterface extends JpaRepository<Notification, Integer> {
 
-    Notification findByNotificationID(int id);
+    @Override
+    Optional<Notification> findById(Integer integer);
+
 }

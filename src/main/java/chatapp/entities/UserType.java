@@ -47,6 +47,14 @@ public class UserType {
         this.typeName = typeName;
     }
 
+    public Set<Privilege> getPrivileges() {
+        return privileges;
+    }
+
+    public void setPrivileges(Set<Privilege> privileges) {
+        this.privileges = privileges;
+    }
+
     public void print() {
         for (Privilege g : privileges)
             System.out.println(g.getPrivilegeID());
