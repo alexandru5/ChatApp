@@ -1,9 +1,11 @@
 package chatapp.dao.controllers;
 
 import chatapp.dao.services.PrivilegeService;
-import chatapp.dao.services.UserTypeService;
 import chatapp.entities.Privilege;
-import chatapp.entities.UserType;
+import chatapp.exceptions.GroupNotFoundException;
+import chatapp.exceptions.PrivilegeNotFoundException;
+import chatapp.exceptions.UserNotFoundException;
+import chatapp.exceptions.UserTypeNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,8 +19,7 @@ public class PrivilegeController {
     @Autowired
     PrivilegeService privilegeService;
 
-    @Autowired
-    UserTypeService userTypeService;
+
 
     @Transactional
     @PutMapping("/create")
@@ -28,7 +29,7 @@ public class PrivilegeController {
 
     @Transactional
     @DeleteMapping("/deleteById")
-    public void deletePrivilegeById(@RequestParam("id") int id) {
+    public void deletePrivilegeById(@RequestParam("id") int id) throws PrivilegeNotFoundException {
         privilegeService.deletePrivilegeById(id);
     }
 
@@ -44,12 +45,9 @@ public class PrivilegeController {
     }
 
     @GetMapping("/findPrivilegesOfUserInGroup")
-    public Set<Privilege> findPrivilegesOfUserInGroup(int idUser, int idGroup) {
-        UserType userType = userTypeService.findUserTypeOfUserInGroup(idUser, idGroup);
+    public Set<Privilege> findPrivilegesOfUserInGroup(int idUser, int idGroup) throws UserTypeNotFoundException,
+                                                                            UserNotFoundException, GroupNotFoundException {
+        return privilegeService.findPrivilegesOfUserInGroup(idUser, idGroup);
 
-        if (userType != null)
-            return userType.getPrivileges();
-        else
-            return null;
     }
 }

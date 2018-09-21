@@ -3,9 +3,7 @@ package chatapp.dao.services;
 import chatapp.MagicEncoder.PasswordEncoder;
 import chatapp.dao.repositories.UserRepoInterface;
 import chatapp.entities.User;
-import chatapp.exceptions.EmailExistsException;
-import chatapp.exceptions.NoUserWithActivationTokenException;
-import chatapp.exceptions.WrongParametersException;
+import chatapp.exceptions.*;
 import chatapp.tokens.TokenGenerator;
 import chatapp.validators.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
-import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 
@@ -28,6 +25,9 @@ public class UserService {
     @Autowired
     JavaMailSender sender;
 
+    @Autowired
+    GroupService groupService;
+
     private PasswordEncoder passwordEncoder;
 
     public boolean exists(int id) {
@@ -37,20 +37,18 @@ public class UserService {
         return repo.existsByEmail(email);
     }
 
-    @Transactional
     public User insertUser(User us) {
         return repo.save(us);
     }
 
-    @Transactional
     public void createUser(User user) throws WrongParametersException, EmailExistsException {
         UserValidator validator = new UserValidator();
         if (!validator.validate(user)) {
-            throw new WrongParametersException("Wrong user body");
+            throw new WrongParametersException();
         }
 
         if (existsByEmail(user.getEmail())) {
-            throw new EmailExistsException("There is an account with that email adress:" + user.getEmail());
+            throw new EmailExistsException();
         }
 
         TokenGenerator tokenGenerator = new TokenGenerator();
@@ -63,67 +61,73 @@ public class UserService {
         sendMail(insertedUser);
     }
 
-    public boolean checkUserPassword(int id, String passwordToBeChecked) {
+    public boolean checkUserPassword(int id, String passwordToBeChecked) throws UserNotFoundException {
         User us = findUserByID(id);
+
+        if (us == null) throw new UserNotFoundException();
         passwordEncoder = new PasswordEncoder();
         return passwordEncoder.matches(passwordToBeChecked, us.getPassword());
     }
-    @Transactional
+
     public void deleteUser(User us) {
         repo.delete(us);
     }
 
-    @Transactional
-    public void updateUserName(int id, String newName) {
+    public void updateUserName(int id, String newName) throws UserNotFoundException, NotValidUserNameException {
         if (!repo.existsById(id))
-            return;
+            throw new UserNotFoundException();
 
         UserValidator validator = new UserValidator();
 
         if (validator.validName(newName))
             repo.updateUserName(id, newName);
+        else
+            throw new NotValidUserNameException();
     }
 
-    @Transactional
-    public void updateEmail(int id, String email) {
+    public void updateEmail(int id, String email) throws UserNotFoundException, NotValidEmailException {
         if (!repo.existsById(id))
-            return;
+            throw new UserNotFoundException();
 
         UserValidator validator = new UserValidator();
 
         if (validator.validEmail(email))
             repo.updateEmail(id, email);
+        else
+            throw new NotValidEmailException();
     }
 
-    @Transactional
-    public void updatePhoneNo(int id, String phoneNo) {
+    public void updatePhoneNo(int id, String phoneNo) throws UserNotFoundException, NotValidPhoneNoException {
         if (!repo.existsById(id))
-            return;
+            throw new UserNotFoundException();
 
         UserValidator validator = new UserValidator();
 
         if (validator.validPhoneNo(phoneNo))
             repo.updatePhoneNo(id, phoneNo);
+        else
+            throw new NotValidPhoneNoException();
     }
 
-    @Transactional
-    public void updateNotificationType(int id, String notificationType) {
+    public void updateNotificationType(int id, String notificationType) throws UserNotFoundException, NotValidNotificationTypeException {
         if (!repo.existsById(id))
-            return;
+            throw new UserNotFoundException();
 
         UserValidator validator = new UserValidator();
 
         if (validator.validNotificationType(notificationType))
             repo.updateNotificationType(id, notificationType);
+        else
+            throw new NotValidNotificationTypeException();
     }
 
-    @Transactional
-    public void updateActivity(int id, boolean isActive) {
-        if (repo.existsById(id))
+    public void updateActivity(int id, boolean isActive) throws UserNotFoundException {
+        if (!repo.existsById(id))
+            throw new UserNotFoundException();
+        else
             repo.updateActivity(id, isActive);
     }
 
-    @Transactional
     public void deleteUserByID(int id) {
         repo.deleteById(id);
     }
@@ -157,12 +161,18 @@ public class UserService {
         return repo.findAll();
     }
 
-    public List<User> findUsersInGroup(int id) {
-        return repo.findByGroupID(id);
+    public List<User> findUsersInGroup(int id) throws GroupNotFoundException {
+        if (groupService.exists(id))
+            return repo.findByGroupID(id);
+        else
+            throw new GroupNotFoundException();
     }
 
-    public List<User> findActiveUsersInGroup(int id) {
-        return repo.findActiveUsersInGroup(id);
+    public List<User> findActiveUsersInGroup(int id) throws GroupNotFoundException {
+        if (groupService.exists(id))
+            return repo.findActiveUsersInGroup(id);
+        else
+            throw new GroupNotFoundException();
     }
 
     public void sendMail(User us) {
@@ -179,11 +189,12 @@ public class UserService {
         }
         sender.send(message);
     }
-    public void activateUser(int id, String activationToken) throws NoUserWithActivationTokenException {
+
+    public void activateUser(int id, String activationToken) throws UserNotFoundException {
         User user = findUserByIdAndActivationToken(id, activationToken);
 
         if(user == null)
-            throw new NoUserWithActivationTokenException("No user with this activation token!");
+            throw new UserNotFoundException();
 
         updateActivity(id, true);
     }

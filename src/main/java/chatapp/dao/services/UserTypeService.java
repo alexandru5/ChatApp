@@ -2,6 +2,8 @@ package chatapp.dao.services;
 
 import chatapp.dao.repositories.UserTypeRepoInterface;
 import chatapp.entities.UserType;
+import chatapp.exceptions.GroupNotFoundException;
+import chatapp.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,12 @@ public class UserTypeService {
 
     @Autowired
     UserTypeRepoInterface repo;
+
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    GroupService groupService;
 
     public void insertUserType(UserType userType) {
         repo.save(userType);
@@ -23,7 +31,10 @@ public class UserTypeService {
         return repo.findByTypeID(id).orElse(null);
     }
 
-    public UserType findUserTypeOfUserInGroup(int idUser, int idGroup) {
+    public UserType findUserTypeOfUserInGroup(int idUser, int idGroup) throws UserNotFoundException, GroupNotFoundException {
+        if (!userService.exists(idUser)) throw new UserNotFoundException();
+        if (!groupService.exists(idGroup)) throw new GroupNotFoundException();
+
         return repo.findUserTypeOfUserInGroup(idUser, idGroup).orElse(null);
     }
 }

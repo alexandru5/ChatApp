@@ -11,11 +11,11 @@ public class Message {
     @Column(name="MessageID")
     private int messageID;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval=true)
+    @OneToOne
     @JoinColumn(name = "GroupID")
     private Group group;
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval=true)
+    @OneToOne
     @JoinColumn(name = "UserID")
     private User user;
 
@@ -90,7 +90,7 @@ public class Message {
 
     @Override
     public String toString() {
-        return "Message [id=" + messageID + ", group=" + group.getGroupID() + ", user=" + user.getUserID() + ", message=" + message +
-                ", createdAt=" + createdAt + ", notifID=" + notification.getNotificationID() + "]";
+        return "Message [id=" + messageID + ", group=" + group + ", user=" + user + ", message=" + message +
+                ", createdAt=" + createdAt + ", notifID=" + notification + "]";
     }
 }

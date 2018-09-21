@@ -1,9 +1,9 @@
 package chatapp.exceptions;
 
-public class WrongParametersException extends Exception {
-    public WrongParametersException(){}
-    public WrongParametersException(String message) { super(message); }
-    public WrongParametersException(String message, Throwable cause) { super(message, cause); }
-    public WrongParametersException(Throwable cause) { super(cause); }
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
+@ResponseStatus(value = HttpStatus.BAD_REQUEST, code = HttpStatus.BAD_REQUEST, reason="Wrong parameters!!!")
+public class WrongParametersException extends Exception {
+    public WrongParametersException() {super();}
 }

@@ -19,8 +19,8 @@ public interface UserRepoInterface extends JpaRepository<User, Integer> {
     Optional<User> findByEmail(String email);
     Optional<User> findByActivationToken(String activationToken);
     Optional<User> findByUserIDAndActivationToken(int id, String activationToken);
-
     List<User> findAll();
+
     boolean existsById(Integer integer);
     boolean existsByEmail(String email);
 

@@ -3,7 +3,7 @@ package chatapp.validators;
 import chatapp.entities.User;
 
 public class UserValidator {
-    public static final String VALID_NAME_REGEX = "[A-Za-z]+";
+    public static final String VALID_NAME_REGEX = "[A-Za-z0-9]+";
     public static final String VALID_EMAIL_ADDRESS_REGEX = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$";
     public static final String VALID_PHONE_NO_REGEX = "\\+?[0-9]{10,16}";
     public static final String NOTIFICATION_TYPE_EMAIL = "email";

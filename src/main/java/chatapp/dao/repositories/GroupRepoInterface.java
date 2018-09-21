@@ -2,6 +2,7 @@ package chatapp.dao.repositories;
 
 import chatapp.entities.Group;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
@@ -14,9 +15,14 @@ public interface GroupRepoInterface extends JpaRepository<Group, Integer> {
 
     Optional<Group> findByGroupID(int id);
 
+    @Modifying(clearAutomatically = true)
+    void deleteByGroupID(int id);
+
+    @Modifying(clearAutomatically = true)
     @Query("UPDATE Group g SET g.isPrivate = :isPrivate WHERE g.groupID = :id")
     void updatePrivacyOfGroup(@Param("id") int id, @Param("isPrivate") boolean isPrivate);
 
+    @Modifying(clearAutomatically = true)
     @Query("UPDATE Group g SET g.groupName = :name WHERE g.groupID = :id")
     void updateGroupName(@Param("id") int id, @Param("name") String name);
 

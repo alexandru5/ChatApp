@@ -15,7 +15,7 @@ CREATE TABLE `User` (
 );
 
 CREATE TABLE `UserType` (
-  `TypeID` int(11) NOT NULL,
+  `TypeID` int(11) NOT NULL AUTO_INCREMENT,
   `TypeName` varchar(50) NOT NULL,
   PRIMARY KEY (`TypeID`)
 );
@@ -27,7 +27,6 @@ CREATE TABLE `Group` (
   `CreatedAt` datetime NOT NULL,
   `CreatedBy` int(11) NULL,
   PRIMARY KEY (`GroupID`),
-  UNIQUE KEY `GroupName` (`GroupName`),
   KEY `CreatedBy` (`CreatedBy`),
   CONSTRAINT `Group_ibfk_1` FOREIGN KEY (`CreatedBy`) REFERENCES `User` (`userid`) ON DELETE SET NULL
 );
@@ -40,13 +39,13 @@ CREATE TABLE `IsIn` (
   PRIMARY KEY (`UserID`,`GroupID`),
   KEY `GroupID` (`GroupID`),
   KEY `TypeID` (`TypeID`),
-  CONSTRAINT `IsIn_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `User` (`userid`),
-  CONSTRAINT `IsIn_ibfk_2` FOREIGN KEY (`GroupID`) REFERENCES `Group` (`groupid`),
+  CONSTRAINT `IsIn_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `User` (`userid`)  ON DELETE CASCADE,
+  CONSTRAINT `IsIn_ibfk_2` FOREIGN KEY (`GroupID`) REFERENCES `Group` (`groupid`)  ON DELETE CASCADE,
   CONSTRAINT `IsIn_ibfk_3` FOREIGN KEY (`TypeID`) REFERENCES `UserType` (`typeid`)
 );
 
 CREATE TABLE `Notification` (
-  `NotificationID` int(11) NOT NULL,
+  `NotificationID` int(11) NOT NULL AUTO_INCREMENT,
   `NotificationMessage` varchar(255) NOT NULL,
   `Frequency` int(11) NOT NULL,
   `CreatedAt` datetime NOT NULL,
@@ -81,7 +80,7 @@ CREATE TABLE `Message` (
   KEY `UserID` (`UserID`),
   KEY `NotificationID` (`NotificationID`),
   CONSTRAINT `Message_ibfk_1` FOREIGN KEY (`GroupID`) REFERENCES `Group` (`groupid`),
-  CONSTRAINT `Message_ibfk_2` FOREIGN KEY (`UserID`) REFERENCES `User` (`userid`) ON DELETE CASCADE,
+  CONSTRAINT `Message_ibfk_2` FOREIGN KEY (`UserID`) REFERENCES `User` (`userid`),
   CONSTRAINT `Message_ibfk_3` FOREIGN KEY (`NotificationID`) REFERENCES `Notification` (`notificationid`)
 );
 

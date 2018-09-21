@@ -4,6 +4,8 @@ package chatapp.dao.controllers;
 import chatapp.dao.services.PrivilegeService;
 import chatapp.dao.services.UserTypeService;
 import chatapp.entities.UserType;
+import chatapp.exceptions.GroupNotFoundException;
+import chatapp.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,7 +39,7 @@ public class UserTypeController {
     }
 
     @GetMapping("/findUserTypeOfUserInGroup")
-    public UserType findUserTypeOfUserInGroup(int idUser, int idGroup) {
+    public UserType findUserTypeOfUserInGroup(int idUser, int idGroup) throws UserNotFoundException, GroupNotFoundException {
         return serviceUserType.findUserTypeOfUserInGroup(idUser, idGroup);
     }
 }

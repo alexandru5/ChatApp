@@ -1,9 +1,9 @@
 package chatapp.exceptions;
 
-public class EmailExistsException extends Exception {
-    public EmailExistsException(){}
-    public EmailExistsException(String message) { super(message); }
-    public EmailExistsException(String message, Throwable cause) { super(message, cause); }
-    public EmailExistsException(Throwable cause) { super(cause); }
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
+@ResponseStatus(value = HttpStatus.BAD_REQUEST, code = HttpStatus.BAD_REQUEST, reason="This email is already in the system")
+public class EmailExistsException extends Exception {
+    public EmailExistsException() {super();}
 }
