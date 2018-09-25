@@ -23,6 +23,7 @@ public interface UserRepoInterface extends JpaRepository<User, Integer> {
 
     boolean existsById(Integer integer);
     boolean existsByEmail(String email);
+    boolean existsByUserName(String username);
 
     @Modifying(clearAutomatically = true)
     @Query("UPDATE User u SET u.userName = :name WHERE u.userID = :id")

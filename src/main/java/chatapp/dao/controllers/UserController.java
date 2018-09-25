@@ -51,8 +51,9 @@ public class UserController {
 
     @Transactional
     @PutMapping("/updateNotificationType")
-    public void updateNotificationType(@RequestParam("id") int id, @RequestParam("notificationType") String notificationType) throws UserNotFoundException,
-                                                                                                                                     NotValidNotificationTypeException {
+    public void updateNotificationType(@RequestParam("id") int id, @RequestParam("notificationType") String notificationType)
+                                                                                        throws UserNotFoundException,
+                                                                                               NotValidNotificationTypeException {
         userService.updateNotificationType(id, notificationType);
     }
 
@@ -98,7 +99,7 @@ public class UserController {
     }
 
     @GetMapping("/findByPhoneNo")
-    User findUserByPhoneNo(@RequestParam("phoneno") String phoneNo) {
+    User findUserByPhoneNo(@RequestParam("phoneNo") String phoneNo) {
         return userService.findUserByPhoneNo(phoneNo);
     }
 

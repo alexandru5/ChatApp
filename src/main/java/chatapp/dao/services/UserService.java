@@ -33,6 +33,11 @@ public class UserService {
     public boolean exists(int id) {
         return repo.existsById(id);
     }
+
+    public boolean existsByUsername(String username) {
+        return repo.existsByUserName(username);
+    }
+
     public boolean existsByEmail(String email) {
         return repo.existsByEmail(email);
     }
@@ -41,15 +46,13 @@ public class UserService {
         return repo.save(us);
     }
 
-    public void createUser(User user) throws WrongParametersException, EmailExistsException {
+    public void createUser(User user) throws WrongParametersException, EmailExistsException, UsernameExistsException {
         UserValidator validator = new UserValidator();
-        if (!validator.validate(user)) {
-            throw new WrongParametersException();
-        }
+        if (!validator.validate(user)) throw new WrongParametersException();
 
-        if (existsByEmail(user.getEmail())) {
-            throw new EmailExistsException();
-        }
+        if (existsByEmail(user.getEmail())) throw new EmailExistsException();
+
+        if (existsByUsername(user.getUserName())) throw new UsernameExistsException();
 
         TokenGenerator tokenGenerator = new TokenGenerator();
         user.setActivationToken(tokenGenerator.getToken());
@@ -74,8 +77,7 @@ public class UserService {
     }
 
     public void updateUserName(int id, String newName) throws UserNotFoundException, NotValidUserNameException {
-        if (!repo.existsById(id))
-            throw new UserNotFoundException();
+        if (!repo.existsById(id)) throw new UserNotFoundException();
 
         UserValidator validator = new UserValidator();
 
@@ -86,8 +88,7 @@ public class UserService {
     }
 
     public void updateEmail(int id, String email) throws UserNotFoundException, NotValidEmailException {
-        if (!repo.existsById(id))
-            throw new UserNotFoundException();
+        if (!repo.existsById(id)) throw new UserNotFoundException();
 
         UserValidator validator = new UserValidator();
 
@@ -98,8 +99,7 @@ public class UserService {
     }
 
     public void updatePhoneNo(int id, String phoneNo) throws UserNotFoundException, NotValidPhoneNoException {
-        if (!repo.existsById(id))
-            throw new UserNotFoundException();
+        if (!repo.existsById(id)) throw new UserNotFoundException();
 
         UserValidator validator = new UserValidator();
 
@@ -110,8 +110,7 @@ public class UserService {
     }
 
     public void updateNotificationType(int id, String notificationType) throws UserNotFoundException, NotValidNotificationTypeException {
-        if (!repo.existsById(id))
-            throw new UserNotFoundException();
+        if (!repo.existsById(id)) throw new UserNotFoundException();
 
         UserValidator validator = new UserValidator();
 
@@ -193,8 +192,7 @@ public class UserService {
     public void activateUser(int id, String activationToken) throws UserNotFoundException {
         User user = findUserByIdAndActivationToken(id, activationToken);
 
-        if(user == null)
-            throw new UserNotFoundException();
+        if(user == null) throw new UserNotFoundException();
 
         updateActivity(id, true);
     }
