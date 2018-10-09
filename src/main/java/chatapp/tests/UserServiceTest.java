@@ -1,13 +1,8 @@
 package chatapp.tests;
 
-import chatapp.dao.repositories.UserRepoInterface;
-import chatapp.dao.services.UserService;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-
 public class UserServiceTest {
 
-    @Mock
+/*    @Mock
     UserRepoInterface repoMock;
 
     @InjectMocks
@@ -17,5 +12,5 @@ public class UserServiceTest {
 //    public void setUp() throws Exception {
 //
 //        MockitoAnnotations.initMocks(this);
-//    }
+//    }*/
 }
