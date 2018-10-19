@@ -7,6 +7,7 @@ import chatapp.exceptions.*;
 import chatapp.tokens.TokenGenerator;
 import chatapp.validators.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -17,18 +18,26 @@ import java.util.Date;
 import java.util.List;
 
 @Service
+@ComponentScan
 public class UserService {
 
     @Autowired
     UserRepoInterface repo;
 
     @Autowired
+    TokenGenerator tokenGenerator;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
+    @Autowired
+    UserValidator validator;
+
+    @Autowired
     JavaMailSender sender;
 
     @Autowired
     GroupService groupService;
-
-    private PasswordEncoder passwordEncoder;
 
     public boolean exists(int id) {
         return repo.existsById(id);
@@ -47,14 +56,13 @@ public class UserService {
     }
 
     public void createUser(User user) throws WrongParametersException, EmailExistsException, UsernameExistsException {
-        UserValidator validator = new UserValidator();
+        //UserValidator validator = new UserValidator();
         if (!validator.validate(user)) throw new WrongParametersException();
 
         if (existsByEmail(user.getEmail())) throw new EmailExistsException();
 
         if (existsByUsername(user.getUserName())) throw new UsernameExistsException();
 
-        TokenGenerator tokenGenerator = new TokenGenerator();
         user.setActivationToken(tokenGenerator.getToken());
         passwordEncoder = new PasswordEncoder();
         user.setCreatedAt(new Date());
@@ -72,14 +80,10 @@ public class UserService {
         return passwordEncoder.matches(passwordToBeChecked, us.getPassword());
     }
 
-    public void deleteUser(User us) {
-        repo.delete(us);
-    }
-
     public void updateUserName(int id, String newName) throws UserNotFoundException, NotValidUserNameException {
         if (!repo.existsById(id)) throw new UserNotFoundException();
 
-        UserValidator validator = new UserValidator();
+        //UserValidator validator = new UserValidator();
 
         if (validator.validName(newName))
             repo.updateUserName(id, newName);
@@ -90,7 +94,7 @@ public class UserService {
     public void updateEmail(int id, String email) throws UserNotFoundException, NotValidEmailException {
         if (!repo.existsById(id)) throw new UserNotFoundException();
 
-        UserValidator validator = new UserValidator();
+        //UserValidator validator = new UserValidator();
 
         if (validator.validEmail(email))
             repo.updateEmail(id, email);
@@ -101,7 +105,7 @@ public class UserService {
     public void updatePhoneNo(int id, String phoneNo) throws UserNotFoundException, NotValidPhoneNoException {
         if (!repo.existsById(id)) throw new UserNotFoundException();
 
-        UserValidator validator = new UserValidator();
+        //UserValidator validator = new UserValidator();
 
         if (validator.validPhoneNo(phoneNo))
             repo.updatePhoneNo(id, phoneNo);
@@ -112,7 +116,7 @@ public class UserService {
     public void updateNotificationType(int id, String notificationType) throws UserNotFoundException, NotValidNotificationTypeException {
         if (!repo.existsById(id)) throw new UserNotFoundException();
 
-        UserValidator validator = new UserValidator();
+        //UserValidator validator = new UserValidator();
 
         if (validator.validNotificationType(notificationType))
             repo.updateNotificationType(id, notificationType);
@@ -148,9 +152,9 @@ public class UserService {
         return repo.findByUserName(username).orElse(null);
     }
 
-    public User findUserByActivationToken(String activationToken) {
+    /*public User findUserByActivationToken(String activationToken) {
         return repo.findByActivationToken(activationToken).orElse(null);
-    }
+    }*/
 
     public User findUserByIdAndActivationToken(int id, String activationToken) {
         return repo.findByUserIDAndActivationToken(id, activationToken).orElse(null);

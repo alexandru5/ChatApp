@@ -1,7 +1,9 @@
 package chatapp.validators;
 
 import chatapp.entities.User;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserValidator {
     public static final String VALID_NAME_REGEX = "[A-Za-z0-9]+";
     public static final String VALID_EMAIL_ADDRESS_REGEX = "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$";

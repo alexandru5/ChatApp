@@ -6,7 +6,6 @@ import chatapp.entities.Group;
 import chatapp.exceptions.GroupNotFoundException;
 import chatapp.exceptions.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
@@ -21,7 +20,7 @@ public class GroupController {
     GroupService groupService;
 
     @Transactional
-    @PutMapping("/create")
+    @PutMapping("/private/create")
     public void createGroup(@RequestBody Group group) {
         group.setCreatedAt(new Date());
         groupService.insertGroup(group);
@@ -29,45 +28,45 @@ public class GroupController {
     }
 
     @Transactional
-    @DeleteMapping("/deleteById")
-    public void deleteGroupByID(@Param("id") int id) {
+    @DeleteMapping("/private/deleteById/{id}")
+    public void deleteGroupByID(@PathVariable int id) {
         groupService.deleteGroupByID(id);
     }
 
     @Transactional
-    @PutMapping("/changePrivacy")
-    public void changePrivacy(@Param("id") int id, @Param("isPrivate") boolean isPrivate) throws GroupNotFoundException {
+    @PutMapping("/private/changePrivacy/{id}")
+    public void changePrivacy(@PathVariable int id, @RequestParam("isPrivate") boolean isPrivate) throws GroupNotFoundException {
         groupService.updateGroupPrivacy(id, isPrivate);
     }
 
     @Transactional
-    @PutMapping("/changeName")
-    public void changeGroupName(@Param("id") int id, @Param("name") String name) throws GroupNotFoundException {
+    @PutMapping("/private/changeName/{id}")
+    public void changeGroupName(@PathVariable int id, @RequestParam("name") String name) throws GroupNotFoundException {
         groupService.updateGroupName(id, name);
     }
 
-    @GetMapping("/findById")
-    public Group getGroupByID(@RequestParam("id") int id) {
+    @GetMapping("/private/findById/{id}")
+    public Group getGroupByID(@PathVariable int id) {
         return groupService.getGroupByID(id);
     }
 
-    @GetMapping("/findCreatedBy")
-    public List<Group> getGroupsCreatedBy(@RequestParam("id") int id) throws UserNotFoundException {
+    @GetMapping("/private/findCreatedBy/{id}")
+    public List<Group> getGroupsCreatedBy(@PathVariable int id) throws UserNotFoundException {
         return groupService.getGroupsCreatedBy(id);
     }
 
-    @GetMapping("/findGroupsOfUser")
-    public List<Group> getGroupsOfUser(@RequestParam("id") int id) throws UserNotFoundException {
+    @GetMapping("/private/findGroupsOfUser/{id}")
+    public List<Group> getGroupsOfUser(@PathVariable int id) throws UserNotFoundException {
         return groupService.getGroupsOfUser(id);
     }
 
-    @GetMapping("/findPrivateGroupsOfUser")
-    public List<Group> getPrivateGroupsOfUser(@RequestParam("id") int id) throws UserNotFoundException {
+    @GetMapping("/private/findPrivateGroupsOfUser/{id}")
+    public List<Group> getPrivateGroupsOfUser(@PathVariable int id) throws UserNotFoundException {
         return groupService.getPrivateGroupsOfUser(id);
     }
 
-    @GetMapping("/findPublicGroupsOfUser")
-    public List<Group> getPublicGroupsOfUser(@RequestParam("id") int id) throws UserNotFoundException {
+    @GetMapping("/private/findPublicGroupsOfUser/{id}")
+    public List<Group> getPublicGroupsOfUser(@PathVariable int id) throws UserNotFoundException {
         return groupService.getPublicGroupsOfUser(id);
     }
 }

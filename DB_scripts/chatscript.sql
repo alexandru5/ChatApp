@@ -107,6 +107,7 @@ INSERT INTO `UserType`(`TypeID`,`TypeName`) VALUES(3, "member");
 INSERT INTO `IsIn`(`UserID`, `GroupID`, `TypeID`, `IsBlocked`) VALUES(7, 1, 1, false);
 INSERT INTO `IsIn`(`UserID`, `GroupID`, `TypeID`, `IsBlocked`) VALUES(5, 2, 1, false);
 
+INSERT INTO `IsIn`(`UserID`, `GroupID`, `TypeID`, `IsBlocked`) VALUES(7, 2, 2, false);
 INSERT INTO `IsIn`(`UserID`, `GroupID`, `TypeID`, `IsBlocked`) VALUES(1, 1, 3, false);
 INSERT INTO `IsIn`(`UserID`, `GroupID`, `TypeID`, `IsBlocked`) VALUES(6, 1, 2, false);
 INSERT INTO `IsIn`(`UserID`, `GroupID`, `TypeID`, `IsBlocked`) VALUES(8, 1, 3, false);

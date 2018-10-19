@@ -1,7 +1,9 @@
 package chatapp.tokens;
 
 import net.bytebuddy.utility.RandomString;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TokenGenerator {
     private String token;
     private static final int length = 64;

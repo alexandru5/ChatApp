@@ -22,30 +22,30 @@ public class PrivilegeController {
 
 
     @Transactional
-    @PutMapping("/create")
+    @PutMapping("/private/create")
     public void createPrivilege(@RequestBody Privilege privilege) {
             privilegeService.insertPrivilege(privilege);
     }
 
     @Transactional
-    @DeleteMapping("/deleteById")
-    public void deletePrivilegeById(@RequestParam("id") int id) throws PrivilegeNotFoundException {
+    @DeleteMapping("/private/deleteById/{id}")
+    public void deletePrivilegeById(@PathVariable int id) throws PrivilegeNotFoundException {
         privilegeService.deletePrivilegeById(id);
     }
 
 
-    @GetMapping("/findById")
-    public Privilege findPrivilegeById(@RequestParam("id") int id) {
+    @GetMapping("/private/findById/{id}")
+    public Privilege findPrivilegeById(@PathVariable int id) {
         return privilegeService.findPrivilegeById(id);
     }
 
-    @GetMapping("/findContaining")
+    @GetMapping("/private/findContaining")
     public Privilege findPrivilegeContains(@RequestParam("containing") String containing) {
         return privilegeService.findPrivilegeWith(containing);
     }
 
-    @GetMapping("/findPrivilegesOfUserInGroup")
-    public Set<Privilege> findPrivilegesOfUserInGroup(int idUser, int idGroup) throws UserTypeNotFoundException,
+    @GetMapping("/private/findPrivilegesOfUserInGroup/{idUser}/{idGroup}")
+    public Set<Privilege> findPrivilegesOfUserInGroup(@PathVariable("idUser") int idUser, @PathVariable("idGroup") int idGroup) throws UserTypeNotFoundException,
                                                                             UserNotFoundException, GroupNotFoundException {
         return privilegeService.findPrivilegesOfUserInGroup(idUser, idGroup);
 
