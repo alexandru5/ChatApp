@@ -50,4 +50,5 @@ public interface UserRepoInterface extends JpaRepository<User, Integer> {
 
     @Query("SELECT u FROM User u JOIN IsIn i ON u.userID = i.id.userID WHERE i.id.groupID = :id AND u.isActive = true")
     List<User> findActiveUsersInGroup(@Param("id") int id);
+
 }

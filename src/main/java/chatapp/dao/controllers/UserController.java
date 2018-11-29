@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @Transactional
-    @PutMapping("/private/create")
+    @PutMapping("/public/create")
     public void createUser(@RequestBody User user) throws EmailExistsException, WrongParametersException, UsernameExistsException {
         userService.createUser(user);
     }
@@ -83,7 +83,7 @@ public class UserController {
         userService.deleteUserByID(id);
     }
 
-    @GetMapping("/private/findById/{id}")
+    @GetMapping("/moderator/findById/{id}")
     public User findUserByID(@PathVariable int id) {
         return userService.findUserByID(id);
     }
@@ -93,7 +93,7 @@ public class UserController {
         return userService.findUserByEmail(email);
     }
 
-    @GetMapping("/private/findByUsername/{username}")
+    @GetMapping("/admin/findByUsername/{username}")
     User findUserByUserName(@PathVariable String username) {
         return userService.findUserByUserName(username);
     }
