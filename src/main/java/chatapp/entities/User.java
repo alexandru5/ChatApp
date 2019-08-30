@@ -46,14 +46,12 @@ public class User {
     public User() {}
 
     public User(String userName, String email, String phoneNo, String password,
-                String activationToken, String notificationType, Date createdAt) {
+                String activationToken, Date createdAt) {
         this.userName = userName;
         this.email = email;
-        this.phoneNo = phoneNo;
         this.password = password;
         this.activationToken = activationToken;
         this.isActive = false;
-        this.notificationType = notificationType;
         this.createdAt = createdAt;
     }
 
@@ -79,14 +77,6 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getPhoneNo() {
-        return phoneNo;
-    }
-
-    public void setPhoneNo(String phoneNo) {
-        this.phoneNo = phoneNo;
     }
 
     public String getPassword() {
