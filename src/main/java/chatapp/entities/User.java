@@ -31,9 +31,6 @@ public class User {
     @Column(name="isActive", nullable = false)
     private boolean isActive;
 
-    @Column(name="NotificationType", nullable = false)
-    private String notificationType;
-
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="CreatedAt", nullable = false)
     private Date createdAt;
@@ -116,14 +113,7 @@ public class User {
         isActive = active;
     }
 
-    public String getNotificationType() {
-        return notificationType;
-    }
-
-    public void setNotificationType(String notificationType) {
-        this.notificationType = notificationType;
-    }
-
+ 
     public Date getCreatedAt() {
         return createdAt;
     }
